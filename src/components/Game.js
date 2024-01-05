@@ -132,7 +132,7 @@ function Game() {
         playerName: userName,
         chosenRoom: cr,
       });
-	  if ( !isEmpty(cr) && cr.currentPlayers==[] ) {
+	  if ( !isEmpty(cr) && isEmpty(cr.currentPlayers) ) {
 		emitRemoveRoomFromActiveRooms(cr.id)
 	  }
     }
