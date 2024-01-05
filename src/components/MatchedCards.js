@@ -41,7 +41,7 @@ const Image = styled.img`
 
 
 const MatchedCards = (props) => {
-  const { index, players, card } = props;
+  const { players, card } = props;
 
   console.log("MatchCards -- props: ", props)
 
