@@ -5,6 +5,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 3px;
+
 `;
 
 const PlayersContainer = styled.div`
@@ -12,42 +14,23 @@ const PlayersContainer = styled.div`
   justify-content: center;
   background-color: #fdf2e9;
   color: #fad5a5;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   padding: 0;
+  
+  background-color: #808000;
+  background-color: magenta;
+
+  color: #fad5a5;
+
 `;
+
 
 const MsgAndButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  background-color: red;
 
-const MsgContainer = styled.div`
-  background-color: #fdf2e9;
-  color: #fad5a5;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  border-radius: 25px;
-
-  background-color: #808000;
-  color: #fad5a5;
-
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s;
-  font-size: 2.3rem;
-  font-weight: bold;
-  display: flex;
-  flex-direction: row-reverse;
-  &:active {
-    transform: translateY(5px);
-    box-shadow: none;
-  }
 `;
 
 const ReturnButton = styled.button`
@@ -56,15 +39,16 @@ const ReturnButton = styled.button`
   position: relative;
   border-radius: 25px;
   
-  background-color: #fad5a5;
-  color: #808000;
+  background-color: #808000;
+  color: #fad5a5;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin: 5px;
   cursor: pointer;
   box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s;
-  font-size: 2.3rem;
+  font-size: 1rem;
   font-weight: bold;
   display: flex;
   flex-direction: row-reverse;
@@ -80,10 +64,7 @@ const TougleMatchedCardButton = (props) => {
 
   return (
     <Container>
-      <PlayersContainer>
         {isMatched && (
-          <MsgAndButtonContainer>
-            <MsgContainer>"You've got a match!"</MsgContainer>
             <ReturnButton
               onClick={() => {
                 setClearFlippedCards(true);
@@ -91,7 +72,6 @@ const TougleMatchedCardButton = (props) => {
             >
               Back to game board
             </ReturnButton>
-          </MsgAndButtonContainer>
         )}
         {!isMatched && (
           <ReturnButton
@@ -103,7 +83,6 @@ const TougleMatchedCardButton = (props) => {
             Keep going!
           </ReturnButton>
         )}
-      </PlayersContainer>
     </Container>
   );
 };

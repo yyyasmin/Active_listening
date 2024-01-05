@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
-  width: 300px;
   display: flex;
   flex-direction: column;
   cursor: grab;
@@ -10,9 +9,12 @@ const CardContainer = styled.div`
   position: relative;
   margin: 10px;
   border-radius: 25px;
-  border: 10px solid brown;
+  border: 6px solid brown;
   display: flex;
+  max-width: 300px;
+  height: calc(100vh - 22vh); /* Adjusted to use the full height of the screen */
 `;
+
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -33,7 +35,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: strech;
   border-radius: 25px;
 `;
 
@@ -77,12 +79,6 @@ const MatchedCards = (props) => {
         <ImageWrapper>
           <Image src={card.imageImportName} alt={card.imageImportName} />
         </ImageWrapper>
-        <TextContainer>
-          <>
-            <PlayerName>{currentPlayer.name}</PlayerName>
-            <CardText>{currentText}</CardText>
-          </>
-        </TextContainer>
       </ContentWrapper>
     </CardContainer>
   );

@@ -1,20 +1,11 @@
-import { Emotions_1 } from "./GameCards/Emotions_1.js";
-import { Emotions_2 } from "./GameCards/Emotions_2.js";
-import { Intimacy_1 } from "./GameCards/Intimacy_1.js";
-import { Calm_1 } from "./GameCards/Calm_1.js";
-import { First_Letter_1 } from "./GameCards/First_Letter_1.js";
-import { Deep_1 } from "./GameCards/Deep_1.js";
-import { Deep_2 } from "./GameCards/Deep_2.js";
-import { Deep_3 } from "./GameCards/Deep_3.js";
-import { Adva } from "./GameCards/Adva.js";
-import { Jana_1 } from "./GameCards/Jana_1.js";
+import { Active_litening_1 } from "./GameCards/Active_litening_1.js"
 
 
 import { shuffle } from "./shuffle"; // Import all exports for images loading
 import { CHOSEN_PROXY_URL } from "./ServerRoutes.js";
 
 //const MIN_CARD_WIDTH = 150; // Adjust this value based on your design preference
-const TITLE_SIZE = "2.5rem";
+const TITLE_SIZE = "7rem";
 //const CARD_RATIO = 0.8; // WIDTH/HEIGHT
 //const FIXED_GAP_SIZE = 10; // height/width
 
@@ -38,6 +29,8 @@ const getInitialGallerySize = () => {
     width: window.innerWidth,
     height: window.innerHeight - parseFloat(TITLE_SIZE)
   }
+  console.log("WWWWWWWWWWWWWWW -- ", initialGallerySize)
+
 	return initialGallerySize			
 }
 
@@ -47,7 +40,7 @@ export const calculateCardSize = (cardsNum) => {
   const containerHeight = initialSize.height;
   let cols, rows
 
-  console.log("IN calculateCardSize -- cardsNum: ", cardsNum)
+  console.log("IN calculateCardSize -- HHHHHHHHHHHHHHH -- containerHeight: ", containerHeight)
 
   switch(cardsNum)  {
     case 8:
@@ -118,6 +111,11 @@ export const calculateCardSize = (cardsNum) => {
   //if its a vertical screen swap cols and rows
   if ( containerHeight > containerWidth)  {
     let tmpCols = cols
+    console.log("WWWWWWWWWW -- SWITCHING COLS AND ROWS")
+    console.log("SWITCHING COLS AND ROWS --containerHeight: ", containerHeight)
+    console.log("SWITCHING COLS AND ROWS -- containerWidth: ", containerWidth)
+    console.log("SWITCHING COLS AND ROWS -- containerHeight > containerWidth: ", containerHeight > containerWidth)
+
     cols = rows
     rows = tmpCols
   }
@@ -128,8 +126,14 @@ export const calculateCardSize = (cardsNum) => {
   let gapWidth = totalGapWidth / (cols+1)
   let gapHeight = totalGapHeight / (rows+1)
 
+  console.log("IN calculateCardSize -- SSSSSSS -- totalGapHeight: ", totalGapHeight)
+  console.log("IN calculateCardSize -- SSSSSSS -- rows:  ", rows)
+  console.log("IN calculateCardSize -- SSSSSSS -- gapHeight:  ", gapHeight, 30*gapHeight)
+
   let cardWidth = ( containerWidth - (totalGapWidth+1) ) / cols
-  let cardHeight = ( containerHeight - (totalGapHeight+1) ) / rows
+  let cardHeight = ( containerHeight - ( totalGapHeight + 30 ) ) / rows
+  
+  console.log("IN calculateCardSize -- CCCCCCCCCCCCCC - HHHHHHHHHHHHHHH --   ", cardHeight)
 
     
   //let cardWidth = CARD_RATIO * cardHeight
@@ -137,7 +141,7 @@ export const calculateCardSize = (cardsNum) => {
   const cardSize = {
     card: {
       width: cardWidth,
-      height: cardHeight*0.8,
+      height: cardHeight,
     },
     gap: {
       width: gapWidth,
@@ -164,29 +168,23 @@ const initCardsInRoomsFromJson = async (rooms) => {
 
     console.log("initCardsInRoomsFromJson -- cardsData: ", cardsData)
 
-
     if (cardsData) {
       let gameCards = cardsData.gameCards || [];
-      const importArr = {
-        Emotions_1: Emotions_1,
-        Emotions_2: Emotions_2,
-        Intimacy_1: Intimacy_1,
-        Calm_1: Calm_1,
-        First_Letter_1: First_Letter_1,
-        Deep_1: Deep_1,
-        Deep_2: Deep_2,
-        Deep_3: Deep_3,
-        Adva: Adva,
-        Jana_1: Jana_1
 
-        // Add more gameName mappings as needed
+      const importArr = {
+        Active_listening_1: Active_litening_1
       };
+
+      console.log("INIT -- initCardsInRoomsFromJson -- importArr: ", importArr)
+      console.log("INIT -- initCardsInRoomsFromJson -- room.gameName: ", room.gameName)
+      console.log("INIT -- initCardsInRoomsFromJson -- importArr[room.gameName]: ", importArr[room.gameName])
 
       if (importArr[room.gameName]) {
         const gameCards1 = gameCards.map((card, index) => ({
           ...card,
           imageImportName: importArr[room.gameName][index][0],
         })); 
+
         console.log("INIT -- initCardsInRoomsFromJson -- gameCards1: ", gameCards1)
   
         const gameCards2 = gameCards.map((card, index) => ({
@@ -217,7 +215,6 @@ const initRoomsFromJson = async () => {
   return [];
 };
 
-// ... Rest of your code ...
 
 // Export a function that initializes rooms with cardsData
 export const initRoomsFunc = async () => {

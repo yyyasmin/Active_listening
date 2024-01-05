@@ -24,13 +24,14 @@ const GameContainer = styled.div`
   background-color: #fdf2e9;
   color: brown;
   border-radius: 25px;
+  height: 100%;
 `;
 
 const Wellcome = styled.h1`
-  font-size: 2.5rem;
+  font-size: 1rem;
   text-align: center;
-  margin-bottom: 5px;
   border-radius: 25px;
+  margin: 1px; /* Adjust the margin to reduce the gap */
 `;
 
 const CardGallery = styled.div`
@@ -40,9 +41,10 @@ const CardGallery = styled.div`
   flex-wrap: wrap;
   background-color: #fad5a5;
   border-radius: 25px;
-  height: calc(100vh - 100px);
+  height: 100%; /* Adjusted to cover the entire available height */
   justify-content: space-between;
 `;
+
 
 function Game() {
   const location = useLocation();
@@ -188,8 +190,7 @@ function Game() {
     }
   }
  
-
-  
+ 
 	const getActivePlayer = () => {
 		const activePlayer = cr.currentPlayers.find((player) => player.isActive);
 		return {...activePlayer}

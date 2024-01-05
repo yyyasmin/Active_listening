@@ -1,0 +1,56 @@
+{
+   "gameName": "Active_litening_1",
+   "id": 0,
+   "gameCards": [
+      {
+         "id": "1",
+         "name": "lis1",
+         "correctChoice": "have",
+         "fileNameWithSufix": "lis1.png",
+         "background": "gray",
+         "text1": "4 דברים פרקטיים שמפעילים את היכולות הקוגניטיביות הטכניות לקידום מיומנויות חברתיות וניתנים לתירגול:",
+         "text2": "- סיכום דבריו של המדבר ב-כמה משפטי\n- זיהוי והבעת הרגש שעומד מאחורי הדברים\n- התחלת משפט תגובה, תוך שימוש ב-3 מילים האחרונות של הדובר.\n- הצצה לאזור עיניו של הדובר מדי כמה שניות (אם קשה לעיניים - אז לגבות או לתחילת המצח)\n- הצגת שאלה פתוחה",
+         "isFlipped": true
+      },
+      {
+         "id": "2",
+         "name": "lis2",
+         "correctChoice": "have",
+         "fileNameWithSufix": "lis2.png",
+         "background": "gray",
+         "text1": "עבדתי על הפרויקט הזה כבר שבועות, וזה מרגיש כאילו אני לא מתקדם. המשימות לא מפסיקות להצטבר, ואני לא מצליח להדביק את הקצב.",
+         "text2": "יזה נשמע כאילו אתה מתמודד עם הרבה לחץ בעבודה ואתה מרגיש תקוע.",
+         "isFlipped": true
+      },
+      {
+         "id": "3",
+         "name": "lis3",
+         "correctChoice": "has",
+         "fileNameWithSufix": "lis3.png",
+         "background": "gray",
+         "text1": "הרגע קיבלתי פידבק מהממונה עליי, וזה היה די קשה.",
+         "text2": "חשבתי שהסתדרתי טוב, אבל עכשיו אני לא כל כך בטוח",
+         "isFlipped": true
+      },
+      {
+         "id": "4",
+         "name": "lis4",
+         "correctChoice": "has",
+         "fileNameWithSufix": "lis4.png",
+         "background": "gray",
+         "text1": "ניסיתי לאזן בין העבודה לחיים האישיים, אבל זה נהיה יותר ויותר קשה.",
+         "text2": "אני מרגיש שאני מזניח דברים חשובים בשניהם",
+         "isFlipped": true
+      },
+      {
+         "id": "5",
+         "name": "lis5",
+         "correctChoice": "have",
+         "fileNameWithSufix": "h5.png",
+         "background": "gray",
+         "text1": "הרגשתי מנותק מהצוות שלי בעבודה.",
+         "text2": "התקשורת הייתה קצת מתוחה, ואני לא בטוח איך לשפר אותה",
+         "isFlipped": true
+      }
+   ]
+}

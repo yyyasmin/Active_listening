@@ -52,7 +52,7 @@ function NameForm({ setUserName }) {
       <form onSubmit={handleSubmit}>
         <NameInput
           type="text"
-          placeholder="Your Username"
+          placeholder="הכנס כתובת אימייל"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />

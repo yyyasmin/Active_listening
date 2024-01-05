@@ -1,3 +1,6 @@
+const isEmpty = require("./helpers/isEmpty");
+
+
 // HELPERS
 let activeRooms = [];  // KEEP TRACK OF PLAYERS
 // const isEmpty = obj => !Object.keys(obj).length;
@@ -31,7 +34,7 @@ const getRoomFromActiveRooms = (room) => {
 
   const existingRoomIndex = activeRooms.findIndex((r) => r.id === newRoomId);
 
-  if (existingRoomIndex !== -1) {
+  if (existingRoomIndex !== -1 && !isEmpty(activeRooms[existingRoomIndex].currentPlayers) ) {
     console.log("IN getRoomFromActiveRooms -- returning activeRooms[existingRoomIndex] : ", activeRooms[existingRoomIndex].id);
     return activeRooms[existingRoomIndex];
   } else {
@@ -46,14 +49,10 @@ const getRoomFromActiveRooms = (room) => {
 setRoomToAddPlayer = (chosenRoom) => {
   let updatedRoom; 
   updatedRoom = getRoomFromActiveRooms(chosenRoom)
-  //console.log("0000 -- updatedRoom.currentPlayers: ", updatedRoom.id, updatedRoom.currentPlayers)
   updatedRoom.cardsData.map( (card, index) =>  {
     // Reset all game cards to be on thier back side - when a new players joins - to start the game from start
     card.isFlipped = true
   } )
-  console.log("IN setRoomToAddPlayer -- updatedRoom.id: ", updatedRoom.id)
-  console.log("IN setRoomToAddPlayer -- updatedRoom.currentPlayers: ", updatedRoom.currentPlayers)
-
   return updatedRoom
 }
 
@@ -132,14 +131,16 @@ const serverSocketServices = (io) => {
 
   io.on("connection", (socket) => {
 
-    socket.on("CREATE_ROOM_AND_ADD_PLAYER", ({ playerName, chosenRoom }) => {
+    socket.on("CREATE_ROOM_AND_ADD_PLAYER", async({ playerName, chosenRoom }) => {
       let updatedRoom = {...chosenRoom};
-      console.log("ON-CCCCCCCCCCCCCCCCCC -- CREATE_ROOM_AND_ADD_PLAYER -- playerName: ", playerName)
+      //console.log("ON-111111 -- CREATE_ROOM_AND_ADD_PLAYER -- chosenRoom: ", chosenRoom)
       if (playerName != undefined)  {
-        updatedRoom = setRoomToAddPlayer(chosenRoom, playerName)
-        updatedRoom = addPlayerToRoom(updatedRoom, playerName, socket.id)
+        updatedRoom = await setRoomToAddPlayer(chosenRoom, playerName)
+        //console.log("ON-222222 -- CREATE_ROOM_AND_ADD_PLAYER -- updatedRoom: ", updatedRoom)
+        updatedRoom = await addPlayerToRoom(updatedRoom, playerName, socket.id)
         updateActiveRoomsWithUpdatedRoom(updatedRoom)
       }
+
       io.emit("UPDATED_CURRENT_ROOM", updatedRoom);
     });  // END ON-CREATE_ROOM_AND_ADD_PLAYER
 
@@ -194,10 +195,14 @@ const serverSocketServices = (io) => {
       removeRoomFromActiveRooms(roomId) 
     });
 
-    socket.on("CURENT_ROOM_CHANGED", (updatedRoom) => {
-      updateActiveRoomsWithUpdatedRoom(updatedRoom) 
-      io.emit("UPDATED_CURRENT_ROOM", updatedRoom);   
+
+    socket.on("CURENT_ROOM_CHANGED", async (updatedRoom) => {
+      // Ensure that updateActiveRoomsWithUpdatedRoom completes before proceeding
+      await updateActiveRoomsWithUpdatedRoom(updatedRoom);
+      // Now emit the UPDATED_CURRENT_ROOM event
+      io.emit("UPDATED_CURRENT_ROOM", updatedRoom);
     });
+    
 
 
     socket.on("MATCHED_CARDS_CHANGED", (updatedRoom, matchedCards) => {
