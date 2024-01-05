@@ -14,11 +14,6 @@ const PlayersContainer = styled.div`
   justify-content: center;
 `;
 
-const Player = styled.div`
-  font-size: 1rem;
-  font-weight: ${(props) => (props.isPlayersTurn ? "650" : "500")};
-  color: ${(props) => (props.isPlayersTurn ? "brown" : "lightbrown")};
-`;
 
 const PlayerName = styled.div`
   font-size: 1rem;

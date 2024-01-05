@@ -38,7 +38,8 @@ const CardContainer = styled.div`
   overflow: hidden;
   position: relative;
   border-radius: 25px;
-  border: 6px solid brown;
+  border: 6
+  px solid brown;
   box-sizing: border-box;
   max-width: 100%;
   max-height: 100%;
@@ -54,11 +55,8 @@ const CardImage = styled.img`
 
 const NikeCard =  ( props ) =>  {
   
-  let { key, playerName, card, cardSize, isFlipped, toggleCardFlip } = props;
+  let { card, cardSize, isFlipped, toggleCardFlip } = props;
   
-  let cardW = cardSize.width ? cardSize.width.toString()+"px" : null;
-  let cardH = cardSize.height ? cardSize.height.toString()+"px" : null;
-
   const handleCardClick = () => {
     if ( toggleCardFlip != null )  {
       toggleCardFlip(card.id);

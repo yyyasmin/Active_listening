@@ -9,29 +9,6 @@ const Container = styled.div`
 
 `;
 
-const PlayersContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: #fdf2e9;
-  color: #fad5a5;
-  margin-bottom: 10px;
-  padding: 0;
-  
-  background-color: #808000;
-  background-color: magenta;
-
-  color: #fad5a5;
-
-`;
-
-
-const MsgAndButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: red;
-
-`;
 
 const ReturnButton = styled.button`
   text-align: center;
