@@ -39,39 +39,17 @@ const Image = styled.img`
   border-radius: 25px;
 `;
 
-const TextContainer = styled.div`
-  background-color: white;
-  padding: 10px;
-  border-radius: 25px;
-  dir: rtl;
-  text-align: right;
-  border-radius: 25px;
-  flex: 1;
-`;
-
-const PlayerName = styled.div`
-  font-weight: bold;
-`;
-
-const CardText = styled.div`
-  font-size: 1em;
-`;
 
 const MatchedCards = (props) => {
   const { index, players, card } = props;
 
   console.log("MatchCards -- props: ", props)
 
-  const activePlayerIndex = players.findIndex((player) => player.isActive);
-
   let secondPlayerIndex = players.findIndex((player) => !player.isActive);
   if ( secondPlayerIndex===-1 || secondPlayerIndex===undefined )  {
     secondPlayerIndex = 0
   }
 
-  const currentPlayer = activePlayerIndex === index ? players[activePlayerIndex] : players[secondPlayerIndex]
-
-  const currentText = activePlayerIndex === index ? card.text1 : card.text2
 
   return (
     <CardContainer>
