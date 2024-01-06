@@ -54,10 +54,8 @@ const CardImage = styled.img`
 
 const NikeCard =  ( props ) =>  {
   
-  let { key, playerName, card, cardSize, isFlipped, toggleCardFlip } = props;
+  let {card, cardSize, isFlipped, toggleCardFlip } = props;
   
-  let cardW = cardSize.width ? cardSize.width.toString()+"px" : null;
-  let cardH = cardSize.height ? cardSize.height.toString()+"px" : null;
 
   const handleCardClick = () => {
     if ( toggleCardFlip != null )  {
