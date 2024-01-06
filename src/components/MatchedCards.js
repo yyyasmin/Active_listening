@@ -1,9 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { getInitialGallerySize, calculateCardSize } from "../helpers/init";
+
+
+const cardsAreaHeight = getInitialGallerySize().height;
+const cardHeight = calculateCardSize(2).card.height - 5
+
+console.log("IN MATCH -- cardsAreaHeight: ", cardsAreaHeight)
+console.log("IN MATCH -- cardHeight: ", cardHeight)
 
 const CardContainer = styled.div`
   width: 300px;
-  height:100%;
+  height: ${cardHeight}px; // Use the variable here
   display: flex;
   flex-direction: column;
   cursor: grab;
@@ -11,9 +19,10 @@ const CardContainer = styled.div`
   position: relative;
   margin: 10px;
   border-radius: 25px;
-  border: 10px solid brown;
+  border: 8px solid brown;
   display: flex;
 `;
+
 
 const ContentWrapper = styled.div`
   display: flex;

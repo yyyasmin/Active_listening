@@ -2,10 +2,9 @@ import { Active_litening_1 } from "./GameCards/Active_litening_1.js"
 
 
 import { shuffle } from "./shuffle"; // Import all exports for images loading
-import { CHOSEN_PROXY_URL } from "./ServerRoutes.js";
+import { CHOSEN_PROXY_URL, TITLE_SIZE } from "./ServerRoutes.js";
 
 //const MIN_CARD_WIDTH = 150; // Adjust this value based on your design preference
-const TITLE_SIZE = "1rem";
 //const CARD_RATIO = 0.8; // WIDTH/HEIGHT
 //const FIXED_GAP_SIZE = 10; // height/width
 
@@ -24,12 +23,16 @@ const fetchDataFromJSON = async (filePath) => {
   }
 };
 
-const getInitialGallerySize = () => {
+export const getInitialGallerySize = () => {
 	let initialGallerySize = { 
     width: window.innerWidth,
     height: window.innerHeight - parseFloat(TITLE_SIZE)
+
   }
-	return initialGallerySize			
+  console.log("ÏN init -- window.innerHeight:", window.innerHeight)			
+  console.log("ÏN init -- window.innerHeight - parseFloat(TITLE_SIZE):", window.innerHeight - parseFloat(TITLE_SIZE))			
+
+	return initialGallerySize
 }
 
 export const calculateCardSize = (cardsNum) => {
@@ -41,10 +44,16 @@ export const calculateCardSize = (cardsNum) => {
   console.log("IN calculateCardSize -- cardsNum: ", cardsNum)
 
   switch(cardsNum)  {
-    case 8:
-      cols = 4
-      rows = 2
+
+    case 2:
+      cols = 2
+      rows = 1
       break;
+
+    case 8:
+        cols = 4
+        rows = 2
+        break;
 
     case 10:
       cols = 5
@@ -108,6 +117,7 @@ export const calculateCardSize = (cardsNum) => {
 
   //if its a vertical screen swap cols and rows
   if ( containerHeight > containerWidth)  {
+    console.log("SWITCHING ROWS AND COLS")
     let tmpCols = cols
     cols = rows
     rows = tmpCols
