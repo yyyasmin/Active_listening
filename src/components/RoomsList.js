@@ -84,8 +84,8 @@ const RoomsList = ({ userName, roomsInitialData }) => {
     return () => {
       removeUpdatedRoomDataListener();
     };
-  }, []);
-  
+  }, []);  // eslint-disable-next-line react-hooks/exhaustive-deps
+
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -95,7 +95,7 @@ const RoomsList = ({ userName, roomsInitialData }) => {
         state: { userName, currentRoom },
       });
     }
-  }, [currentRoom]);
+  }, [currentRoom]);  // eslint-disable-next-line react-hooks/exhaustive-deps
 
   const rowColors = [
     "#E3F9A6",

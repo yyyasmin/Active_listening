@@ -112,7 +112,7 @@ function Game() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, []);  // eslint-disable-next-line react-hooks/exhaustive-deps
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -122,7 +122,7 @@ function Game() {
     if (!isEmpty(currentRoom) && !isEmpty(userName)) {
       broadcastChangeCardSize(currentRoom);  // Update Cr is in broadcastChangeCardSize
     }
-  }, [currentRoom]);
+  }, [currentRoom]);  // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   window.onbeforeunload = async function (e) {
@@ -156,7 +156,7 @@ function Game() {
       }
     }
     asyncClear()
-  }, [clearFlippedCards] );
+  }, [clearFlippedCards] );  // eslint-disable-next-line react-hooks/exhaustive-deps
 
 
   const togglePlayerTurn = () => {
