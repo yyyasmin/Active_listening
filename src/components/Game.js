@@ -77,7 +77,7 @@ function Game() {
   const broadcastChangeCardSize = async (cr) => {
     let updateCrWithNewCardSize
     if ( !isEmpty(cr) ) {
-      console.log("IN broadcastChangeCardSize -- cr.cardsData: ", cr.cardsData)
+      //console.log("IN broadcastChangeCardSize -- cr.cardsData: ", cr.cardsData)
       if ( !isEmpty(cr.cardsData) ) {
         let cardSize = calculateCardSize(cr.cardsData.length)
         updateCrWithNewCardSize = {...cr, cardSize: cardSize}
