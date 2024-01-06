@@ -77,13 +77,17 @@ const RoomsList = ({ userName, roomsInitialData }) => {
     }
   };
 
+
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     updateCr(setCr);
     return () => {
       removeUpdatedRoomDataListener();
     };
   }, []);
+  
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (currentRoom !== null && currentRoom !== undefined && currentRoom.id >= 0) {
       console.log("IN RoomList -- CALLING GAME WITH: currentRoom: ", currentRoom)
