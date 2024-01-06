@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const CardContainer = styled.div`
+  width: 300px;
+  height:100%;
   display: flex;
   flex-direction: column;
   cursor: grab;
@@ -9,12 +11,9 @@ const CardContainer = styled.div`
   position: relative;
   margin: 10px;
   border-radius: 25px;
-  border: 6px solid brown;
+  border: 10px solid brown;
   display: flex;
-  max-width: 300px;
-  height: calc(100vh - 22vh); /* Adjusted to use the full height of the screen */
 `;
-
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -39,17 +38,39 @@ const Image = styled.img`
   border-radius: 25px;
 `;
 
+const TextContainer = styled.div`
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+  dir: rtl;
+  text-align: right;
+  border-radius: 25px;
+  flex: 1;
+`;
+
+const PlayerName = styled.div`
+  font-weight: bold;
+`;
+
+const CardText = styled.div`
+  font-size: 1em;
+`;
 
 const MatchedCards = (props) => {
-  const { players, card } = props;
+  const { index, players, card } = props;
 
   console.log("MatchCards -- props: ", props)
+
+  const activePlayerIndex = players.findIndex((player) => player.isActive);
 
   let secondPlayerIndex = players.findIndex((player) => !player.isActive);
   if ( secondPlayerIndex===-1 || secondPlayerIndex===undefined )  {
     secondPlayerIndex = 0
   }
 
+  const currentPlayer = activePlayerIndex === index ? players[activePlayerIndex] : players[secondPlayerIndex]
+
+  const currentText = activePlayerIndex === index ? card.text1 : card.text2
 
   return (
     <CardContainer>

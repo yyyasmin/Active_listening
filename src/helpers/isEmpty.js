@@ -1,3 +1,4 @@
+import React from 'react';
 
 // CHECK IF OBJ OF ANY TYPE IS EMPTY 
 function isEmpty(obj) {

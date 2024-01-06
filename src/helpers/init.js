@@ -5,7 +5,7 @@ import { shuffle } from "./shuffle"; // Import all exports for images loading
 import { CHOSEN_PROXY_URL } from "./ServerRoutes.js";
 
 //const MIN_CARD_WIDTH = 150; // Adjust this value based on your design preference
-const TITLE_SIZE = "7rem";
+const TITLE_SIZE = "1rem";
 //const CARD_RATIO = 0.8; // WIDTH/HEIGHT
 //const FIXED_GAP_SIZE = 10; // height/width
 
@@ -29,8 +29,6 @@ const getInitialGallerySize = () => {
     width: window.innerWidth,
     height: window.innerHeight - parseFloat(TITLE_SIZE)
   }
-  console.log("WWWWWWWWWWWWWWW -- ", initialGallerySize)
-
 	return initialGallerySize			
 }
 
@@ -40,7 +38,7 @@ export const calculateCardSize = (cardsNum) => {
   const containerHeight = initialSize.height;
   let cols, rows
 
-  console.log("IN calculateCardSize -- HHHHHHHHHHHHHHH -- containerHeight: ", containerHeight)
+  console.log("IN calculateCardSize -- cardsNum: ", cardsNum)
 
   switch(cardsNum)  {
     case 8:
@@ -111,11 +109,6 @@ export const calculateCardSize = (cardsNum) => {
   //if its a vertical screen swap cols and rows
   if ( containerHeight > containerWidth)  {
     let tmpCols = cols
-    console.log("WWWWWWWWWW -- SWITCHING COLS AND ROWS")
-    console.log("SWITCHING COLS AND ROWS --containerHeight: ", containerHeight)
-    console.log("SWITCHING COLS AND ROWS -- containerWidth: ", containerWidth)
-    console.log("SWITCHING COLS AND ROWS -- containerHeight > containerWidth: ", containerHeight > containerWidth)
-
     cols = rows
     rows = tmpCols
   }
@@ -126,14 +119,8 @@ export const calculateCardSize = (cardsNum) => {
   let gapWidth = totalGapWidth / (cols+1)
   let gapHeight = totalGapHeight / (rows+1)
 
-  console.log("IN calculateCardSize -- SSSSSSS -- totalGapHeight: ", totalGapHeight)
-  console.log("IN calculateCardSize -- SSSSSSS -- rows:  ", rows)
-  console.log("IN calculateCardSize -- SSSSSSS -- gapHeight:  ", gapHeight, 30*gapHeight)
-
   let cardWidth = ( containerWidth - (totalGapWidth+1) ) / cols
-  let cardHeight = ( containerHeight - ( totalGapHeight + 30 ) ) / rows
-  
-  console.log("IN calculateCardSize -- CCCCCCCCCCCCCC - HHHHHHHHHHHHHHH --   ", cardHeight)
+  let cardHeight = ( containerHeight - (totalGapHeight+1) ) / rows
 
     
   //let cardWidth = CARD_RATIO * cardHeight

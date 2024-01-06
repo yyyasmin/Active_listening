@@ -19,6 +19,15 @@ const computeCardSize = (cardSize) => {
   let gHeight = `${cardSize.card.height}px`;
   gHeight = gHeight ? gHeight : "100px";
 
+  //gWidth = "100px";  // SHOULD BE GAP_FIXED_SIZE
+  //gHeight = "100px";
+
+
+  //console.log("Card width: ", cWidth);
+  //console.log("Card height: ", cHeight);
+  //console.log("Gap width: ", gWidth);
+  //console.log("Gap height: ", gHeight);
+
   let resCardSize = {
     width: cWidth,
     height: cHeight,
@@ -29,6 +38,7 @@ const computeCardSize = (cardSize) => {
 };
 
 
+
 const CardContainer = styled.div`
   ${({ cardSize }) => computeCardSize(cardSize)}
 
@@ -37,11 +47,11 @@ const CardContainer = styled.div`
   cursor: grab;
   overflow: hidden;
   position: relative;
+  /*** margin: 10px; ***/
   border-radius: 25px;
-  border: 5px solid brown;
+  border: 10px solid brown;
   box-sizing: border-box;
   max-width: 100%;
-  max-height: 100%;
 `;
 
 const CardImage = styled.img`
