@@ -97,8 +97,10 @@ function Game() {
         flippCount: 0,
       }));
     }
-    const updatedCr = {...cr, currentPlayers: updatedCurrentPlayers}
-    broadcastChangeCr(updatedCr);
+    const updatedCr = {...cr, currentPlayers: updatedCurrentPlayers}  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    broadcastChangeCr(updatedCr);  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }
 
 
@@ -108,9 +110,9 @@ function Game() {
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // eslint-disable-next-line react-hooks/exhaustive-deps
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);// eslint-disable-next-line react-hooks/exhaustive-deps
     };
   }, []);  // eslint-disable-next-line react-hooks/exhaustive-deps
 
