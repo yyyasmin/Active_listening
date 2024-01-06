@@ -106,6 +106,7 @@ function Game() {
 		broadcastChangeCardSize(cr);
   }
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
@@ -113,7 +114,7 @@ function Game() {
     };
   }, []);
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     updateCr(setCr)
 	broadcastChangeCr(currentRoom);
@@ -142,7 +143,7 @@ function Game() {
     return dialogText;
   };
   
-   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect( () => {
     const asyncClear = async() =>  {
       if (clearFlippedCards) {
