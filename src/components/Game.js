@@ -136,7 +136,7 @@ function Game() {
 	  }
     }
     var dialogText = 'Are you really sure you want to leave?';
-    console.log("Game -- handleBeforeUnload -- dialogText: ", dialogText);
+    console.log("Game --- handleBeforeUnload -- dialogText: ", dialogText);
     e.returnValue = dialogText;
     return dialogText;
   };
