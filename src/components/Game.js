@@ -41,7 +41,7 @@ const CardGallery = styled.div`
   flex-wrap: wrap;
   background-color: #fad5a5;
   border-radius: 25px;
-  height: calc(100vh- 5px);
+  height: calc(100vh- 10px);
   justify-content: space-between;
 `;
 
@@ -193,7 +193,8 @@ function Game() {
 	const getActivePlayer = () => {
 		const activePlayer = cr.currentPlayers.find((player) => player.isActive);
 		return {...activePlayer}
-	};  
+	};
+
 
   const handleFlippCount = () =>  {
     let activePlayer = getActivePlayer();
@@ -239,6 +240,11 @@ function Game() {
       if (!isEmpty(cr) && !isEmpty(cr.currentPlayers) && cr.currentPlayers.length > 1 ) {
         console.log("IN toggleCardFlip --activePlayer: ", activePlayer)
       }
+
+      console.log("TOUGLE TURN CONDITION:",
+                      !isEmpty(cr) && !isEmpty(cr.currentPlayers) &&
+                      cr.currentPlayers.length > 1 &&
+                      activePlayer.flippCount >= 3)
 
       if (!isEmpty(cr) && !isEmpty(cr.currentPlayers) && cr.currentPlayers.length > 1 && activePlayer.flippCount >= 3) {
         await togglePlayerTurn();

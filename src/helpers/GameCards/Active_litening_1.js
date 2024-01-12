@@ -1,5 +1,4 @@
 // Import all the required images for Emotions-1
-
 export const lis1_1 = require("../../assets/textures/active_listening_1/png1/lis1.png");
 export const lis1_2 = require("../../assets/textures/active_listening_1/png2/lis1.png");
 

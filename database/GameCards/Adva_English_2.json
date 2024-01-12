@@ -1,0 +1,66 @@
+{
+   "gameName": "Adva_Engph_2",
+   "id": 0,
+   "gameCards": [
+      {
+         "id": "1",
+         "name": "p1",
+         "correctChoice": "have",
+         "fileNameWithSufix": "p1.png",
+         "background": "gray",
+         "text1": "The cat is sleeping",
+         "text2": "החתול ישן",
+         "isFlipped": true
+      },
+      {
+         "id": "2",
+         "name": "p2",
+         "correctChoice": "have",
+         "fileNameWithSufix": "p2.png",
+         "background": "gray",
+         "text1": "The bird is singing",
+         "text2": "הציפור שרה",
+         "isFlipped": true
+      },
+      {
+         "id": "3",
+         "name": "p3",
+         "correctChoice": "has",
+         "fileNameWithSufix": "p3.png",
+         "background": "gray",
+         "text1": "The bird is flying",
+         "text2": "הציפור עפה",
+         "isFlipped": true
+      },
+      {
+         "id": "4",
+         "name": "p4",
+         "correctChoice": "has",
+         "fileNameWithSufix": "p4.png",
+         "background": "gray",
+         "text1": "The bird is drinking",
+         "text2": "הציפור שותה",
+         "isFlipped": true
+      },
+      {
+         "id": "5",
+         "name": "p5",
+         "correctChoice": "have",
+         "fileNameWithSufix": "h5.png",
+         "background": "gray",
+         "text1": "The frog is jumping",
+         "text2": "הצפרדע קופצת",
+         "isFlipped": true
+      },
+      {
+         "id": "6",
+         "name": "p6",
+         "correctChoice": "have",
+         "fileNameWithSufix": "h6.png",
+         "background": "gray",
+         "text1": "This guy is handsome",
+         "text2": "הבחור הזה חתיך",
+         "isFlipped": true
+      }
+   ]
+}

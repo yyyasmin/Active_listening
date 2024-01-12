@@ -1,4 +1,5 @@
 import { Active_litening_1 } from "./GameCards/Active_litening_1.js"
+import { Adva_English_2 } from "./GameCards/Adva_English_2.js"
 
 
 import { shuffle } from "./shuffle"; // Import all exports for images loading
@@ -169,7 +170,9 @@ const initCardsInRoomsFromJson = async (rooms) => {
       let gameCards = cardsData.gameCards || [];
 
       const importArr = {
-        Active_listening_1: Active_litening_1
+        Active_listening_1: Active_litening_1,
+        Adva_English_2: Adva_English_2
+
       };
 
       console.log("INIT -- initCardsInRoomsFromJson -- importArr: ", importArr)
